@@ -15,6 +15,8 @@ import {
   TemplateRenderProps,
 } from "@yext/pages";
 import Favicon from "../public/yext-favicon.ico";
+import { ChatHeadlessProvider, HeadlessConfig } from "@yext/chat-headless-react";
+import { ChatPanel } from "@yext/chat-ui-react";
 
 /**
  * Not required for static templates, but will contain the stream configuration for
@@ -77,7 +79,6 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   };
 };
 
-
 /**
  * This is the main template. It can have any name as long as it's the default export.
  * The props passed in here are the direct result from `transformProps`.
@@ -95,6 +96,14 @@ const Static: Template<TemplateRenderProps> = ({
   return (
     <>
       <h1>Static Page</h1>
+      <ChatHeadlessProvider config={{
+  botId: "",
+  apiKey: "",
+}}>
+        <div className="h-5/6 w-1/2">
+          <ChatPanel/>
+        </div>
+      </ChatHeadlessProvider>
     </>
   );
 };
