@@ -4,4 +4,12 @@ import yextSSG from "@yext/pages/vite-plugin";
 
 export default defineConfig({
   plugins: [react(), yextSSG()],
+  build: {
+    rollupOptions: {
+      external: ["@yext/chat-ui-react/bundle.css"]
+    }
+  }
+  // ssr: {
+  //   external: ['@yext/chat-ui-react/lib/esm/src/bundle.css']
+  // }
 });

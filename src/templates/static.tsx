@@ -15,8 +15,11 @@ import {
   TemplateRenderProps,
 } from "@yext/pages";
 import Favicon from "../public/yext-favicon.ico";
-import { ChatHeadlessProvider, HeadlessConfig } from "@yext/chat-headless-react";
+import { provideCore } from "@yext/search-core";
+import { provideChatCore } from "@yext/chat-core";
+import { ChatHeadlessProvider } from "@yext/chat-headless-react";
 import { ChatPanel } from "@yext/chat-ui-react";
+// import "@yext/chat-ui-react/bundle.css"
 
 /**
  * Not required for static templates, but will contain the stream configuration for
@@ -92,18 +95,47 @@ const Static: Template<TemplateRenderProps> = ({
   // This is the site object from the Knowledge Graph. It contains all the data 
   // for the site entity, and can be accessed in any template, including static templates. 
   const { _site } = document;
+  //CHAT
+  // const a = new ChatHeadless({
+  //   botId: "",
+  //   apiKey: "",
+  //   saveToSessionStorage: false
+  // })
+
+  // const a = provideChatCore({
+  //   botId: "",
+  //   apiKey: "",
+  // })
+
+  //SEARCH:
+  // const b = provideCore({
+  //   experienceKey: "",
+  //   locale: "",
+  //   token: ""
+  // })
+
+  // const c = provideHeadless({
+  //   experienceKey: "",
+  //   locale: "",
+  //   token: ""
+  // })
+
+
 
   return (
     <>
       <h1>Static Page</h1>
       <ChatHeadlessProvider config={{
-  botId: "",
-  apiKey: "",
-}}>
+        botId: "",
+        apiKey: "",
+      }}>
         <div className="h-5/6 w-1/2">
           <ChatPanel/>
         </div>
       </ChatHeadlessProvider>
+      {/* <SearchHeadlessProvider searcher={c}>
+
+      </SearchHeadlessProvider> */}
     </>
   );
 };

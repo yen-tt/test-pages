@@ -7,7 +7,8 @@
   "type": "module",
   "scripts": {
     "dev": "npm run build:local && yext pages generate-test-data && pages dev",
-    "build:local": "vite build",
+    "build:local": "vite build -d",
+    "test-things": "pages dev",
     "build": "yext pages build && yext pages generate-test-data && yext pages render",
     "build:serve": "npm run build && yext pages serve",
     "serve": "yext pages serve",
@@ -21,9 +22,13 @@
     "node": ">=17"
   },
   "dependencies": {
+    "@yext/chat-core": "^0.6.1",
     "@yext/chat-headless-react": "^0.5.8",
-    "@yext/chat-ui-react": "^0.5.6",
+    "@yext/chat-ui-react": "file:~/chat-ui-react/yext-chat-ui-react-0.5.7-test.tgz",
     "@yext/react-components": "^0.0.5",
+    "@yext/search-core": "^2.4.0",
+    "@yext/search-headless": "^2.4.0",
+    "@yext/search-headless-react": "^2.3.0",
     "clsx": "^1.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -36,7 +41,7 @@
     "@typescript-eslint/eslint-plugin": "^5.36.2",
     "@typescript-eslint/parser": "^5.36.2",
     "@vitejs/plugin-react": "^2.1.0",
-    "@yext/pages": "1.0.0-beta.22",
+    "@yext/pages": "1.0.0-rc.1",
     "autoprefixer": "^10.4.8",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.31.7",
